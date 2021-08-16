@@ -1,12 +1,19 @@
+import React,  {useState}  from "react";
+import { BrowserRouter as Router} from "react-router-dom";
+import {NavigationBar} from "./components/NavigationBar";
+import {MainPage} from "./components/main";
 
-function App() {
+export default function App() {
+  const [activeBurger, setActiveBurger] = useState(true);
+  const showResponsiveNavigation = activeBurger === false? "resposiveDisplay" : "";
   return (
-    <div className="App">
-      <header className="App-header">
-      
-      </header>
+    <div className="bodyHome">
+      <Router>
+        <NavigationBar showResponsiveNavigation={showResponsiveNavigation}/>
+        <MainPage />
+      </Router>
     </div>
   );
 }
 
-export default App;
+
